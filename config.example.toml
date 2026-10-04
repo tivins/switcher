@@ -1,0 +1,40 @@
+# switcher — configuration
+# Emplacement : ~/.config/switcher/config.toml
+
+# Fichiers/dossiers qui identifient un projet.
+markers = [
+    ".git", "Cargo.toml", "package.json", "composer.json",
+    "pyproject.toml", "go.mod", "Makefile", "CMakeLists.txt",
+]
+
+# Noms de dossiers ignorés (à n'importe quel niveau). Les dossiers cachés le sont toujours.
+exclude = ["node_modules", "vendor", "target", "build", "dist", "__pycache__"]
+
+# Dossiers scannés. `depth` = profondeur max de recherche.
+# Tout dossier jusqu'à `depth` est un candidat ; on ne descend pas
+# dans un dossier qui contient un marqueur (c'est déjà un projet).
+[[root]]
+path = "~/projects"
+depth = 2
+
+# Alias : nom court -> chemin. Le chemin peut être hors des racines.
+[aliases]
+# app = "~/projects/my-app"
+# dotfiles = "~/.config"
+
+# Actions de la palette rofi. La première est celle de Entrée.
+# `{path}` est remplacé par le chemin du projet.
+[[action]]
+key = "Return"
+name = "Thunar"
+cmd = ["thunar", "{path}"]
+
+[[action]]
+key = "Control+Return"
+name = "Terminal"
+cmd = ["xfce4-terminal", "--working-directory={path}"]
+
+# [[action]]
+# key = "Shift+Return"
+# name = "Code"
+# cmd = ["code", "{path}"]
