@@ -45,3 +45,7 @@ switcher alias NOM       chemin d'un alias
 switcher touch CHEMIN    enregistre une visite
 switcher config          chemin du fichier de config
 ```
+
+## Licence
+
+MIT — voir [LICENSE](LICENSE).
